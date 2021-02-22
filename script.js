@@ -16,30 +16,42 @@ let confirmSpecialCharacter;
 
 //
 function generatePassword() {
-  confirmLength = (prompt("What length would you like your password? It must be 8-128 characters."));
+var userInput = getUserInput()
+console.log(userInput)
 
-    if (confirmLength <= 8 || confirmLength >= 128) {
-        confirmLength = prompt("Password length must between 8-128 characters", "");
+
+
 }
 
-// Choosing criteria for password
-confirmUpperCase = confirm("Would you like upper case letters in your password?");
-confirmLowerCase = confirm("Would you like lower case letters in your password?");
-confirmSpecialCharacter = confirm("Would you like special characters in your password?");
-confirmNumberCharacter = confirm("Would you like numbers in your password?");
+function getUserInput() {
+  confirmLength = prompt("What length would you like your password? It must be 8-128 characters.");
 
-//Loop if they do not choose at least one criteria 
+  if (confirmLength <= 8 || confirmLength >= 128) {
+    getUserInput()
+  }
 
-if (confirmUpperCase=== false && confirmLowerCase=== false && confirmSpecialCharacter===false && confirmNumberCharacter=== false){
-  alert("At least one criteria for password must be selected.");
+  // Choosing criteria for password
   confirmUpperCase = confirm("Would you like upper case letters in your password?");
   confirmLowerCase = confirm("Would you like lower case letters in your password?");
   confirmSpecialCharacter = confirm("Would you like special characters in your password?");
   confirmNumberCharacter = confirm("Would you like numbers in your password?");
+  
+  if (confirmUpperCase === false && confirmLowerCase === false && confirmSpecialCharacter === false && confirmNumberCharacter === false) {
+    alert("At least one criteria for password must be selected.");
+    getUserInput()
+  }
+ return {
+   confirmLength: confirmLength,
+   confirmUpperCase: confirmUpperCase,
+   confirmLowerCase: confirmLowerCase,
+   confirmNumberCharacter: confirmNumberCharacter,
+   confirmSpecialCharacter: confirmSpecialCharacter
+ }
+
 }
 
 
 
-}
+
 
 
