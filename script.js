@@ -13,13 +13,34 @@ let confirmUpperCase;
 let confirmLowerCase;
 let confirmNumberCharacter;
 let confirmSpecialCharacter;
+let password = "";
 
 //
 function generatePassword() {
 var userInput = getUserInput()
-console.log(userInput)
 
-
+let userChar = []
+if (userInput.confirmUpperCase===true){
+  userChar=userChar.concat(upperCase)
+}
+if (userInput.confirmLowerCase===true){
+  userChar=userChar.concat(lowerCase)
+}
+if (userInput.confirmNumberCharacter===true){
+  userChar=userChar.concat(numbers)
+}
+if (userInput.confirmSpecialCharacter===true){
+  userChar=userChar.concat(specialChar)
+}
+console.log(userChar)
+for (let i=1; i<= userInput.confirmLength; i++){
+  const randomNumber= Math.floor(Math.random() * userChar.length) 
+  console.log(randomNumber)
+  const randomLetter= userChar[randomNumber]
+  console.log(randomLetter)
+  password+=randomLetter
+}
+console.log(password)
 
 }
 
@@ -49,6 +70,7 @@ function getUserInput() {
  }
 
 }
+
 
 
 
