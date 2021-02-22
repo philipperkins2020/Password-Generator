@@ -1,5 +1,5 @@
 //Selects the first element that matches
-document.querySelector("#generate").addEventListener("click", generatePassword);
+document.querySelector("#generate").addEventListener("click", writePassword);
 
 //Arrays for the Password Generator
 let specialChar = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "~"];
@@ -9,10 +9,10 @@ let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 // Variables for password criteria
 let confirmLength = "";
-let confirmUpperCase;
-let confirmLowerCase;
-let confirmNumberCharacter;
-let confirmSpecialCharacter;
+let confirmUpperCase = false;
+let confirmLowerCase = false;
+let confirmNumberCharacter= false;
+let confirmSpecialCharacter = false;
 let password = "";
 
 //
@@ -41,13 +41,14 @@ for (let i=1; i<= userInput.confirmLength; i++){
   password+=randomLetter
 }
 console.log(password)
+return password
 
 }
 
 function getUserInput() {
   confirmLength = prompt("What length would you like your password? It must be 8-128 characters.");
 
-  if (confirmLength <= 8 || confirmLength >= 128) {
+  if (confirmLength < 8 || confirmLength > 128) {
     getUserInput()
   }
 
