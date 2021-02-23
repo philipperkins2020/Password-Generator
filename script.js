@@ -15,7 +15,7 @@ let confirmNumberCharacter= false;
 let confirmSpecialCharacter = false;
 let password = "";
 
-//
+// 
 function generatePassword() {
 var userInput = getUserInput()
 
@@ -33,6 +33,7 @@ if (userInput.confirmSpecialCharacter===true){
   userChar=userChar.concat(specialChar)
 }
 console.log(userChar)
+//Creates the password randomnly based on criteria selected by user
 for (let i=1; i<= userInput.confirmLength; i++){
   const randomNumber= Math.floor(Math.random() * userChar.length) 
   console.log(randomNumber)
@@ -44,10 +45,11 @@ console.log(password)
 return password
 
 }
-
+//Function to gather the criteria the user selects
 function getUserInput() {
   confirmLength = prompt("What length would you like your password? It must be 8-128 characters.");
 
+  //User must choose length between 8-128 characters
   if (confirmLength < 8 || confirmLength > 128) {
     getUserInput()
   }
@@ -57,7 +59,8 @@ function getUserInput() {
   confirmLowerCase = confirm("Would you like lower case letters in your password?");
   confirmSpecialCharacter = confirm("Would you like special characters in your password?");
   confirmNumberCharacter = confirm("Would you like numbers in your password?");
-  
+ 
+  //If user does not choose one they will be prompted to try again
   if (confirmUpperCase === false && confirmLowerCase === false && confirmSpecialCharacter === false && confirmNumberCharacter === false) {
     alert("At least one criteria for password must be selected.");
     getUserInput()
@@ -71,7 +74,7 @@ function getUserInput() {
  }
 
 }
-
+//Provides the password in the DOM
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
