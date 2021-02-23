@@ -6,7 +6,7 @@ In this assinment I created a Password Generator using Javascript. The criteria 
 
 
 ## Usage
-![Password-Generator](Assets\images\Screenshot (27).png)
+![Password-Generator](Assets\images\Screenshot(27).png)
 
 ## Table of Contents 
 
