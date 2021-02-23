@@ -15,11 +15,15 @@ let confirmNumberCharacter= false;
 let confirmSpecialCharacter = false;
 let password = "";
 
-// 
+// Generating the password from criteria selected
 function generatePassword() {
 var userInput = getUserInput()
+console.log(userInput)
 
+//Array for storing characters
 let userChar = []
+
+//Conditionals to check which characters to be included
 if (userInput.confirmUpperCase===true){
   userChar=userChar.concat(upperCase)
 }
